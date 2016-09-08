@@ -1,0 +1,2 @@
+# goldshit
+share with everybody
