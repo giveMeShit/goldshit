@@ -1,0 +1,27 @@
+//将字符串按指定要求打印成zigtag矩阵
+public class Solution {
+		public String convert(String s, int numRows) {
+		 if(numRows == 1 || s.length() <= numRows ) return s;
+		 	char[] small = s.toCharArray();
+		 	char[] large = new char[numRowsnumRows + s.length()];
+		 	String outPut = "";int times = 0;
+		 	System.arraycopy(small, 0, large, numRows-1, s.length());
+		 	int length = 2numRows-2;
+		 if(s.length() / length <1) times= 2;
+		 else if(s.length() % length == 0){
+			 times = s.length() / length + 1;
+		 }else{
+			 times = s.length() / length + 2;
+		 }
+		 for(int i=0;i<numRows;i++){
+			 for(int j=0;j<times;j++){
+				 if(i == 0 || i == numRows - 1){
+					 outPut = outPut.trim() + String.valueOf(large[numRows-1+length*j + i]).trim();
+				 }else{
+					 outPut = outPut.trim() + String.valueOf(large[numRows-1+length * j - i]).trim() + String.valueOf(large[numRows-1+length * j + i]).trim();
+				 }
+			 }
+		 }
+		 return outPut;
+		 }
+	}
