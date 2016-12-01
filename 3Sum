@@ -1,0 +1,27 @@
+//找出数组中任意三个和为0的组合
+public class Solution {
+	 public static  List<List<Integer>> threeSum(int[] nums) {
+			 List<List<Integer>> outPut = new ArrayList<List<Integer>>();
+			 HashSet<List<Integer>> set = new HashSet<>();
+			 Arrays.sort(nums);
+			 int low=0,high=0;
+			 for(int i =0;i<nums.length-2;i++){
+				 low = i+1;
+				 high = nums.length-1;
+				 while(low < high){
+					 if(nums[i]+nums[low]+nums[high]==0){
+						 set.add(Arrays.asList(nums[i],nums[low],nums[high]));
+						high--;
+						low++;
+					 }else if(nums[i]+nums[low]+nums[high] > 0){
+						 high--;
+					 }else{
+						 low++;
+					 }
+					 
+				 }
+			 }
+			 outPut.addAll(set);
+			 return  outPut;
+	    }
+}
