@@ -1,0 +1,19 @@
+//判断一个整型数字是否为回文（从前往后与从后往前看是相同数字）
+public boolean isPalindrome(int x) {
+    if(x < 0) return false;
+    try{
+        if(x == palindrome(x)) return true;
+        else return false;
+    }catch(Exception e){
+        return false;
+    }
+}
+
+public int palindrome(int x){
+    int y = 0;
+    while(x % 10 >= 0 && x > 0){
+        y  =  y * 10 + x % 10;
+        x = x / 10;
+    }
+    return y;
+}
