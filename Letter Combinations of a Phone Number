@@ -19,3 +19,4 @@
  +				 if(digits.length()>1) looper(list,temp,digits.substring(1, digits.length()),letters);
  +			 }
  +	 }
+ 递归大法好！！！逻辑简单清晰！！！性能问题还需要再考虑。
