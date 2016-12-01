@@ -1,0 +1,21 @@
++ /**
+ + *将数字字符串转换手机键盘上对应的字母，列出所有可能的组合
+ + **/
+ + public static List<String> letterCombinations(String digits) {
+ +	        List<String> outPut = new ArrayList<>();
+ +	        if(digits.contains("1") || digits.contains("0") || digits.equals("")) return outPut;
+ +	        char[][] letters = {{},{},{'a','b','c'},{'d','e','f'},{'g','h','i'},{'j','k','l'},{'m','n','o'},{'p','q','r','s'},{'t','u','v'},{'w','x','y','z'}};
+ +	        String str="";
+ +	        looper(outPut,str,digits,letters);
+ +	        return outPut;
+ +	    }
+ +	 
+ +	 public static void looper(List<String> list,String str,String digits,char[][] letters){
+ +		 	String temp = "";
+ +			 for(char c : letters[Integer.parseInt(digits.charAt(i))]){
+ +				 temp = str;
+ +				 temp += c;
+ +				 if(digits.length()==1) list.add(temp);
+ +				 if(digits.length()>1) looper(list,temp,digits.substring(1, digits.length()),letters);
+ +			 }
+ +	 }
