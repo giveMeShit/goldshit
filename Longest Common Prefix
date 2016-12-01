@@ -1,0 +1,24 @@
+//找出数组中所有字符串的公共最长子串（从头开始且连续）
+public class Solution {
+  public String longestCommonPrefix(String[] strs) {
+        String prefix = "";
+        if(strs.length < 1) return "";
+        if(strs.length == 1) return strs[0];
+        prefix = strs[0];
+        int i = 1;
+        while(i < strs.length){
+        	prefix = longestPrefix(strs[i],prefix);
+        	i++;
+        }
+        return prefix;
+    }
+    
+    public String longestPrefix(String a,String b){
+    	if(b.length() < 1) return "";
+    	if(a.startsWith(b)){
+    		return b;
+    	}else{
+    		return longestPrefix(a,b.substring(0, b.length()-1));
+    	}
+    }
+}
